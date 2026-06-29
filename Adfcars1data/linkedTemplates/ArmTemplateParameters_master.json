@@ -1,0 +1,90 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "Adfcars1data"
+		},
+		"AzureDataLake_connection_accountKey": {
+			"value": ""
+		},
+		"link_AzureSqlDatabase_password": {
+			"value": ""
+		},
+		"lsDatabase_password": {
+			"value": ""
+		},
+		"lsDatalake_accountKey": {
+			"value": ""
+		},
+		"ls_adls_sink_accountKey": {
+			"value": ""
+		},
+		"ls_bronze_accountKey": {
+			"value": ""
+		},
+		"ls_dataLakeGen2_accountKey": {
+			"value": ""
+		},
+		"AzureDataLake_connection_properties_typeProperties_url": {
+			"value": "https://carsalesproject.dfs.core.windows.net/"
+		},
+		"Gilt_link_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com"
+		},
+		"Ls_github_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com"
+		},
+		"Restapi_ls_properties_typeProperties_url": {
+			"value": "https://pokeapi.co/api/v2/pokemon"
+		},
+		"link_AzureSqlDatabase_properties_typeProperties_server": {
+			"value": "carssalesserver16.database.windows.net"
+		},
+		"link_AzureSqlDatabase_properties_typeProperties_database": {
+			"value": "carsslaesdata"
+		},
+		"link_AzureSqlDatabase_properties_typeProperties_userName": {
+			"value": "adminpranay"
+		},
+		"lsDatabase_properties_typeProperties_server": {
+			"value": "carssalesserver16.database.windows.net"
+		},
+		"lsDatabase_properties_typeProperties_database": {
+			"value": "carsslaesdata"
+		},
+		"lsDatabase_properties_typeProperties_userName": {
+			"value": "adminpranay"
+		},
+		"lsDatalake_properties_typeProperties_url": {
+			"value": "https://carsalesproject.dfs.core.windows.net/"
+		},
+		"ls_adls_sink_properties_typeProperties_url": {
+			"value": "https://carsalesproject.dfs.core.windows.net/"
+		},
+		"ls_bronze_properties_typeProperties_url": {
+			"value": "https://carsalesproject.dfs.core.windows.net/"
+		},
+		"ls_dataLakeGen2_properties_typeProperties_url": {
+			"value": "https://carsalesproject.dfs.core.windows.net/"
+		},
+		"scheduled_properties_scheduled_pipeline_parameters_schema": {
+			"value": "source"
+		},
+		"scheduled_properties_scheduled_pipeline_parameters_table": {
+			"value": "Orders"
+		},
+		"scheduled_properties_scheduled_pipeline_parameters_backdate": {
+			"value": "''"
+		},
+		"trigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/428f3c99-d0dc-475a-aad5-1da2aa970c17/resourceGroups/Cars_sales_project/providers/Microsoft.Storage/storageAccounts/carsalesproject"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

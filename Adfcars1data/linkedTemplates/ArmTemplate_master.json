@@ -1,0 +1,257 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "Adfcars1data"
+		},
+		"AzureDataLake_connection_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLake_connection'"
+		},
+		"link_AzureSqlDatabase_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'link_AzureSqlDatabase'"
+		},
+		"lsDatabase_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'lsDatabase'"
+		},
+		"lsDatalake_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'lsDatalake'"
+		},
+		"ls_adls_sink_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_adls_sink'"
+		},
+		"ls_bronze_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_bronze'"
+		},
+		"ls_dataLakeGen2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_dataLakeGen2'"
+		},
+		"AzureDataLake_connection_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://carsalesproject.dfs.core.windows.net/"
+		},
+		"Gilt_link_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com"
+		},
+		"Ls_github_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com"
+		},
+		"Restapi_ls_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://pokeapi.co/api/v2/pokemon"
+		},
+		"link_AzureSqlDatabase_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "carssalesserver16.database.windows.net"
+		},
+		"link_AzureSqlDatabase_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "carsslaesdata"
+		},
+		"link_AzureSqlDatabase_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "adminpranay"
+		},
+		"lsDatabase_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "carssalesserver16.database.windows.net"
+		},
+		"lsDatabase_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "carsslaesdata"
+		},
+		"lsDatabase_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "adminpranay"
+		},
+		"lsDatalake_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://carsalesproject.dfs.core.windows.net/"
+		},
+		"ls_adls_sink_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://carsalesproject.dfs.core.windows.net/"
+		},
+		"ls_bronze_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://carsalesproject.dfs.core.windows.net/"
+		},
+		"ls_dataLakeGen2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://carsalesproject.dfs.core.windows.net/"
+		},
+		"scheduled_properties_scheduled_pipeline_parameters_schema": {
+			"type": "string",
+			"defaultValue": "source"
+		},
+		"scheduled_properties_scheduled_pipeline_parameters_table": {
+			"type": "string",
+			"defaultValue": "Orders"
+		},
+		"scheduled_properties_scheduled_pipeline_parameters_backdate": {
+			"type": "string",
+			"defaultValue": "''"
+		},
+		"trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/428f3c99-d0dc-475a-aad5-1da2aa970c17/resourceGroups/Cars_sales_project/providers/Microsoft.Storage/storageAccounts/carsalesproject"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "Adfcars1data_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLake_connection_accountKey": {
+						"value": "[parameters('AzureDataLake_connection_accountKey')]"
+					},
+					"link_AzureSqlDatabase_password": {
+						"value": "[parameters('link_AzureSqlDatabase_password')]"
+					},
+					"lsDatabase_password": {
+						"value": "[parameters('lsDatabase_password')]"
+					},
+					"lsDatalake_accountKey": {
+						"value": "[parameters('lsDatalake_accountKey')]"
+					},
+					"ls_adls_sink_accountKey": {
+						"value": "[parameters('ls_adls_sink_accountKey')]"
+					},
+					"ls_bronze_accountKey": {
+						"value": "[parameters('ls_bronze_accountKey')]"
+					},
+					"ls_dataLakeGen2_accountKey": {
+						"value": "[parameters('ls_dataLakeGen2_accountKey')]"
+					},
+					"AzureDataLake_connection_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLake_connection_properties_typeProperties_url')]"
+					},
+					"Gilt_link_properties_typeProperties_url": {
+						"value": "[parameters('Gilt_link_properties_typeProperties_url')]"
+					},
+					"Ls_github_properties_typeProperties_url": {
+						"value": "[parameters('Ls_github_properties_typeProperties_url')]"
+					},
+					"Restapi_ls_properties_typeProperties_url": {
+						"value": "[parameters('Restapi_ls_properties_typeProperties_url')]"
+					},
+					"link_AzureSqlDatabase_properties_typeProperties_server": {
+						"value": "[parameters('link_AzureSqlDatabase_properties_typeProperties_server')]"
+					},
+					"link_AzureSqlDatabase_properties_typeProperties_database": {
+						"value": "[parameters('link_AzureSqlDatabase_properties_typeProperties_database')]"
+					},
+					"link_AzureSqlDatabase_properties_typeProperties_userName": {
+						"value": "[parameters('link_AzureSqlDatabase_properties_typeProperties_userName')]"
+					},
+					"lsDatabase_properties_typeProperties_server": {
+						"value": "[parameters('lsDatabase_properties_typeProperties_server')]"
+					},
+					"lsDatabase_properties_typeProperties_database": {
+						"value": "[parameters('lsDatabase_properties_typeProperties_database')]"
+					},
+					"lsDatabase_properties_typeProperties_userName": {
+						"value": "[parameters('lsDatabase_properties_typeProperties_userName')]"
+					},
+					"lsDatalake_properties_typeProperties_url": {
+						"value": "[parameters('lsDatalake_properties_typeProperties_url')]"
+					},
+					"ls_adls_sink_properties_typeProperties_url": {
+						"value": "[parameters('ls_adls_sink_properties_typeProperties_url')]"
+					},
+					"ls_bronze_properties_typeProperties_url": {
+						"value": "[parameters('ls_bronze_properties_typeProperties_url')]"
+					},
+					"ls_dataLakeGen2_properties_typeProperties_url": {
+						"value": "[parameters('ls_dataLakeGen2_properties_typeProperties_url')]"
+					},
+					"trigger_properties_typeProperties_scope": {
+						"value": "[parameters('trigger_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "Adfcars1data_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'Adfcars1data_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "Adfcars1data_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"scheduled_properties_scheduled_pipeline_parameters_schema": {
+						"value": "[parameters('scheduled_properties_scheduled_pipeline_parameters_schema')]"
+					},
+					"scheduled_properties_scheduled_pipeline_parameters_table": {
+						"value": "[parameters('scheduled_properties_scheduled_pipeline_parameters_table')]"
+					},
+					"scheduled_properties_scheduled_pipeline_parameters_backdate": {
+						"value": "[parameters('scheduled_properties_scheduled_pipeline_parameters_backdate')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'Adfcars1data_ArmTemplate_1')]"
+			]
+		}
+	]
+}
