@@ -1,0 +1,42 @@
+{
+	"name": "Delta_lake",
+	"properties": {
+		"activities": [
+			{
+				"name": "Dataflow_delta",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "delta_flow",
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"source1": {
+								"p_folder": "deltasource",
+								"p_filename": "locations.csv",
+								"p_container": "source"
+							}
+						}
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "None",
+					"cacheSinks": {
+						"firstRowOnly": true
+					}
+				}
+			}
+		],
+		"annotations": []
+	}
+}
