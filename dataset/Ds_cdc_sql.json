@@ -1,0 +1,13 @@
+{
+	"name": "Ds_cdc_sql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lsDatabase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

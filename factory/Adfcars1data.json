@@ -1,0 +1,15 @@
+{
+	"name": "Adfcars1data",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "uksouth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "0704742f-a64e-40dc-ba30-d793c8036699",
+		"tenantId": "fe4e6659-3da6-4f76-8644-8d7d637f5ea2"
+	}
+}

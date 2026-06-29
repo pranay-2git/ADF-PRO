@@ -1,0 +1,23 @@
+{
+	"name": "source_git",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Gilt_link",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "anshlambagit/AnshLambaYoutube/refs/heads/main/ADF_PRO/customers.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,84 @@
+{
+	"name": "Transform Fact CSV",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DataFlowSource",
+						"type": "DatasetReference"
+					},
+					"name": "sourceCSV"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText2",
+						"type": "DatasetReference"
+					},
+					"name": "sink"
+				}
+			],
+			"transformations": [
+				{
+					"name": "select1"
+				},
+				{
+					"name": "filter"
+				},
+				{
+					"name": "split1"
+				},
+				{
+					"name": "derivedColumn"
+				},
+				{
+					"name": "aggregate"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          transaction_id as short,",
+				"          transactional_date as timestamp,",
+				"          product_id as string,",
+				"          customer_id as short,",
+				"          payment as string,",
+				"          credit_card as long,",
+				"          loyalty_card as boolean,",
+				"          cost as double,",
+				"          quantity as short,",
+				"          price as double",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> sourceCSV",
+				"sourceCSV select(mapColumn(",
+				"          transaction_id,",
+				"          transactional_date,",
+				"          product_id,",
+				"          customer_id,",
+				"          payment,",
+				"          price",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 filter(customer_id!=12) ~> filter",
+				"filter split(payment=='visa',",
+				"     payment=='mastercard',",
+				"     disjoint: false) ~> split1@(VISA, MASTERCARD, AMEX)",
+				"split1@AMEX derive(payment = coalesce(payment,'n/a')) ~> derivedColumn",
+				"split1@VISA aggregate(groupBy(customer_id),",
+				"     product_id = max(product_id)) ~> aggregate",
+				"aggregate sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink"
+			]
+		}
+	}
+}
