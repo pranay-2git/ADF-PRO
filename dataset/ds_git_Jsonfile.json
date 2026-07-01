@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": "git.json",
-				"fileSystem": "bronze"
+				"fileSystem": "parameters"
 			}
 		},
 		"schema": {

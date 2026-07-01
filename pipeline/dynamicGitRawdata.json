@@ -68,7 +68,13 @@
 							"inputs": [
 								{
 									"referenceName": "ds_gitrawdata_dynamic",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"p_rel_url": {
+											"value": "@item().p_rel_url",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
